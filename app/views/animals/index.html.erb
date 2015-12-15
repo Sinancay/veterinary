@@ -1,0 +1,26 @@
+<h1>Manage Animals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>User</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @animals.each do |animal| %>
+      <tr>
+        <td><%= animal.role.capitalize %></td>
+        <td><%= animal.user.name %></td>
+        <td><%= animal.age %></td>
+        <td><%= gender(animal.gender) %></td>
+        <td><%= link_to 'Show Animal Info', animal %></td>
+        <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
+        <td><%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

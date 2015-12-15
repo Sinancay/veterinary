@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Barns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Barn cleandate</th>
+      <th>User</th>
+      <th>Equipment issing</th>
+      <th>Descrption</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @barns.each do |barn| %>
+      <tr>
+        <td><%= barn.barn_cleandate %></td>
+        <td><%= barn.user_id %></td>
+        <td><%= barn.equipment_issing %></td>
+        <td><%= barn.descrption %></td>
+        <td><%= link_to 'Show', barn %></td>
+        <td><%= link_to 'Edit', edit_barn_path(barn) %></td>
+        <td><%= link_to 'Destroy', barn, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Barn', new_barn_path %>

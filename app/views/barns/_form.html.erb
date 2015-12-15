@@ -1,0 +1,33 @@
+<%= form_for(@barn) do |f| %>
+  <% if @barn.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@barn.errors.count, "error") %> prohibited this barn from being saved:</h2>
+
+      <ul>
+      <% @barn.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :barn_cleandate %><br>
+    <%= f.datetime_select :barn_cleandate %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :equipment_issing %><br>
+    <%= f.text_field :equipment_issing %>
+  </div>
+  <div class="field">
+    <%= f.label :descrption %><br>
+    <%= f.text_field :descrption %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

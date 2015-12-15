@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  user_id: 
+  age: 
+  gender: false
+  image: MyString
+  using_drugs: MyString
+
+two:
+  type: 
+  user_id: 
+  age: 
+  gender: false
+  image: MyString
+  using_drugs: MyString

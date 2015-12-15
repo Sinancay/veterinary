@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl" xml:lang="pl">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="Paweł 'kilab' Balicki - kilab.pl" />
+<title>Login</title>
+<link rel="stylesheet" type="text/cs" href="/assets/css/login.css" media="screen" />
+</head>
+<body>
+<div class="wrap">
+  <div id="content">
+    <div id="main">
+      <div class="full_w">
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %>
+          <label for="login">Username:</label>
+          <%= f.text_field :username, :autofocus => true, class: 'text' %>
+          <label for="pass">Password:</label>
+          <%= f.password_field :password, class: 'text' %>
+          <div class="sep"></div>
+          <%= f.submit 'Sign in', :class => 'ok' %>
+      <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

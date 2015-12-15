@@ -1,0 +1,24 @@
+<%= form_tag ("/users") do %>
+
+	NAME : <input type="text" name="user[name]"><br><br>
+	USERNAME : <input type="text" name="user[username]"><br><br>
+	PASSWORD  : <input type="password" name="user[password]"><br><br>
+	PERMISSION: <select name="user[role]">
+	<option value=""></option>
+	<option value="admin">ADMIN</option>
+	<option value="veterinary">VETERINARY</option>
+	<option value="barner">CLEANER</option>
+</select><br><br>
+TELEPHONE : <input type="text" name="user[telephone]"><br><br>
+SALARY    : <input type="text" name="user[salary]"><br><br>
+E-MAİL    : <input type="email" name="user[email]"><br><br>
+AGE       : <input type="text" name="user[age]"><br><br>
+GENDER    : <select name="user[gender]">
+<option value=""></option>
+<option value="1">Male</option>
+<option value="0">Female</option>
+</select>
+<br><br>
+<input type="submit" value="ADD USER">
+
+<% end %>

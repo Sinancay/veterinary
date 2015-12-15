@@ -1,0 +1,35 @@
+<%= form_for(@animal) do |f| %>
+<% if @animal.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
+
+  <ul>
+    <% @animal.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+TYPE ANIMAL:
+
+<%= f.select(:role, Animal.roles.keys.map {|role| [role.titleize,role]}) %>
+<br><br>
+
+RESPONSIBLE VETERINARY:
+<%= f.select(:user_id, @veterinaries.all.collect {|a| [a.name, a.id]}) %><br><br>
+
+
+AGE                   : 
+<%= f.text_field :age %>         
+
+GENDER                : 
+<%= f.select(:gender, [['Male',0] , ['Female',1]]) %><br><br>
+
+
+<br><br>
+<div class="actions">
+  <%= f.submit %>
+</div> 
+</div>
+<% end %>

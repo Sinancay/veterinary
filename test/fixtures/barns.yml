@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  barn_cleandate: 2015-12-08 02:27:22
+  user_id: 
+  equipment_issing: 
+  descrption: MyString
+
+two:
+  barn_cleandate: 2015-12-08 02:27:22
+  user_id: 
+  equipment_issing: 
+  descrption: MyString
