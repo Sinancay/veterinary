@@ -8,6 +8,8 @@
   <%= csrf_meta_tags %>
   <link rel="stylesheet" type="text/css" href="/assets/css/style.css" media="screen" />
   <link rel="stylesheet" type="text/css" href="/assets/css/navi.css" media="screen" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
   <script type="text/javascript" src="/assets/js/jquery-1.7.2.min.js"></script>
   <script type="text/javascript">
     $(function(){
@@ -26,7 +28,7 @@
       <div id="main">     
         <div class="clear"></div>
         <div class="full_w">
-          <div class="h_title"> Welcome Admin Page</div>
+          <div class="h_title"> Welcome, <%= current_user.role.capitalize %></div>
           <div class="grid_7">
             <%= yield %>
           </div>

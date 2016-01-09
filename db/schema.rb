@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215162246) do
+ActiveRecord::Schema.define(version: 20151215191355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,9 +43,10 @@ ActiveRecord::Schema.define(version: 20151215162246) do
     t.string   "title"
     t.text     "description"
     t.text     "review"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "sender"
+    t.boolean  "status",      default: false, null: false
   end
 
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id", using: :btree
@@ -56,13 +57,18 @@ ActiveRecord::Schema.define(version: 20151215162246) do
     t.date     "date"
     t.string   "description"
     t.integer  "status"
-    t.string   "image"
     t.string   "review"
     t.string   "findings"
     t.string   "using_drugs"
     t.integer  "animal_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.boolean  "confirmed"
+    t.integer  "user_id"
   end
 
   add_index "reports", ["animal_id"], name: "index_reports_on_animal_id", using: :btree

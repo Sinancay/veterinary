@@ -1,4 +1,4 @@
-<%= form_for(@report) do |f| %>
+<%= form_for @report ,url: reports_path, html: { multipart: true } do |f| %>
   <% if @report.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@report.errors.count, "error") %> prohibited this report from being saved:</h2>
@@ -17,7 +17,7 @@
   REPORT DATE  :  <input type="date" name="report[date]" class="datepicker"><br><br>
   DESCRIPTION  :  <%= f.text_area :description %><br><br>
   STATUS :  <%= f.select(:status, [['DEAD ANIMAL',0] , ['SICK ANIMAL',1] , ['HEALTHY ANIMAL' , 2]]) %><br><br>
-  IMAGE      :    <%= f.text_field :image %><br><br>
+  IMAGE      :    <%= f.file_field :image , as: :file %><br><br>
   REVIEW     :    <%= f.text_area :review %><br><br>
   FINDINGS   :    <%= f.text_area :findings %><br><br>
   <div class="actions">

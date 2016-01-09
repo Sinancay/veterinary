@@ -5,12 +5,24 @@ class ContactsController < ApplicationController
   # GET /contacts.json
   def index
     @users = User.where.not(id: current_user.id)
-    @contacts = Contact.where('user_id=? OR sender=?', current_user.id , current_user.id)
+    @contacts = Contact.where('sender=?', current_user.id)
+  end
+
+  def recieved
+    @users = User.where.not(id: current_user.id)
+    @contacts = Contact.where('user_id=?', current_user.id)
   end
 
   # GET /contacts/1
   # GET /contacts/1.json
   def show
+    @contact = Contact.find(params[:id])
+    
+    unless(current_user.id  == @contact.sender)
+      @contact.status = true
+      @contact.save
+    end
+
   end
 
   # GET /contacts/new

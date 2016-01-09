@@ -1,40 +1,32 @@
-
-        <a href="animaladd.html" class="dashboard-module">
+ <% if current_user.admin? %>
+        <a href="/animals/new" class="dashboard-module">
           <img src="img/animaladd.png" tppabs="img/animaladd.png" width="64" height="64" alt="edit">
           <span>ANIMAL ADD</span>
         </a>
 
-        <a href="useradd.html" class="dashboard-module">
+        <a href="/users/new" class="dashboard-module">
           <img src="img/useradd.png" tppabs="img/useradd.png" width="64" height="64" alt="edit">
           <span>USER ADD</span>
         </a>
-        
-        <a href="feedback.html" class="dashboard-module">
+<% end %>
+        <a href="/contacts/new" class="dashboard-module">
           <img src="img/feedback.png" tppabs="img/feedback.png" width="64" height="64" alt="edit">
           <span>FEEDBACK</span>
         </a>
-        
-        <a href="deletereport.html" class="dashboard-module">
-          <img src="img/deletereport.png" tppabs="img/deletereport.png" width="64" height="64" alt="edit">
-          <span>DELETE REPORT</span>
-        </a>
-        
-        <a href="showreport.html" class="dashboard-module">
+ <% unless current_user.barner? %>        
+        <a href="/reports" class="dashboard-module">
           <img src="img/reportshow.png" tppabs="img/reportshow.png" width="64" height="64" alt="edit">
-          <span>REPORT SHOW</span>
+          <span>REPORTS</span>
         </a>
         
-        <a href="writereport.html" class="dashboard-module">
+        <a href="/reports/new" class="dashboard-module">
           <img src="img/writereport.png" tppabs="img/writereport.png" width="64" height="64" alt="edit">
           <span>WRITE REPORT</span>
         </a>
-        <a href="reportconf.html" class="dashboard-module">
-          <img src="img/confirmreport.png" tppabs="reportconf.html" width="64" height="64" alt="edit">
-          <span>CONFIRM REPORT</span>
-        </a>
-        <a href="contact.html" class="dashboard-module">
+<% end %>
+        <a href="/contacts" class="dashboard-module">
           <img src="img/contact.png" tppabs="img/contact.png" width="64" height="64" alt="edit">
-          <span>CONTACT</span>
+          <span>MESSAGES</span>
         </a>
         <div style="clear: both"></div>
       </div><table>

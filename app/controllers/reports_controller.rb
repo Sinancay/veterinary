@@ -1,13 +1,19 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
   before_action :veterinaries
+
+  layout false , only: [:show]
   
 
   # GET /reports
   # GET /reports.json
   def index
     @animals = Animal.where(user_id: current_user.id)
+    if current_user.admin?
     @reports = Report.all
+    else
+    @reports = Report.where(user_id: current_user.id)
+    end
   end
 
   # GET /reports/1
@@ -47,13 +53,19 @@ class ReportsController < ApplicationController
   def update
     respond_to do |format|
       if @report.update(report_params)
-        format.html { redirect_to @report, notice: 'Report was successfully updated.' }
+        format.html { redirect_to reports_url, notice: 'Report was successfully updated.' }
         format.json { render :show, status: :ok, location: @report }
       else
         format.html { render :edit }
         format.json { render json: @report.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirm
+    @report.update(report_params)
+
+    redirect_to reports_url
   end
 
   # DELETE /reports/1
@@ -66,6 +78,7 @@ class ReportsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_report
@@ -74,6 +87,6 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:role, :title, :date, :description, :status, :image, :review, :findings, :animal_id)
+      params.require(:report).permit(:user_id , :role, :title, :date, :description, :status, :image, :review, :findings, :animal_id ,:confirmed )
     end
 end

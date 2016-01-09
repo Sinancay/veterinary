@@ -5,6 +5,7 @@
   <%= form_for(user) do |f| %>
     <td><%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %></td>
     <td><%= f.submit 'Change Role', :class => 'button-xs' %></td>
+    <td><a href="/users/<%= user.id %>/edit">Edit User</a></td>
     <td><%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs') unless user == current_user %></td>
   <% end %>
 </td>

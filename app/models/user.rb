@@ -2,11 +2,15 @@ class User < ActiveRecord::Base
   enum role: [:veterinary, :barner, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
+  def roles
+    return [:veterinary , :barner , :admin]
+  end
+
 
   validates :username,
   :presence => true,
   :uniqueness => {
-    :case_sensitive => true
+  :case_sensitive => true
   }
 
 
